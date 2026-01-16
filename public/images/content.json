@@ -1,0 +1,196 @@
+{
+  "name": "kuckó tanulószoba",
+  "menu": {
+    "home": "kezdőlap",
+    "goals": "céljaink",
+    "waiting": "kiket várunk",
+    "whoWeAre": "kik vagyunk",
+    "prices": "árak",
+    "admission": "felvételi",
+    "roomRental": "terembérlés",
+    "contacts": "elérhetőségek"
+  },
+  "hero": {
+    "title": "Tanulás könnyedén, együtt!",
+    "study": "Tanulás",
+    "game": "Játék",
+    "success": "Siker"
+  },
+  "goals": {
+    "title": "Tanulószobánk célja",
+    "firstSection": "Egy barátságos környezet kialakítása a gyerekek számára, ahol könnyebb és örömtelibb a tanulás. Nálunk nem csak leckét írnak, hanem valódi segítséget kapnak az iskolai tananyag megértéséhez és elsajátításához.",
+    "secondSection": "Kis létszámú csoportjaink lehetővé teszik az egyéni figyelmet, így minden gyermek saját tempójában fejlődhet. A házi feladatok elkészítésén és a tananyag átismétlésén túl arra próbálunk törekedni, hogy magabiztosabbá váljanak, önállóan is tudjanak tanulni.",
+    "thirdSection": "Nagy hangsúlyt fektetünk a szociális készségek fejlesztésére is. Számos szabadtéri játékkal foglaljuk le őket a tanulás végeztével. Programjaink során a gyerekek nem csak tudással, hanem új barátságokkal is gazdagodnak. A város különböző iskoláiba járnak, itt lehetőség van egymás megismerésére.",
+    "fourthSection": "Ha szeretné, hogy gyermeke olyan közösségben tanuljon, ahol figyelem és gondoskodás veszi körül, akkor nálunk a helye. Mi azért dolgozunk, hogy minden gyereknek sikerélménye legyen és jó jegyek legyenek a bizonyítványban.",
+    "goal": "Mert együtt tényleg könnyebb a tanulás!"
+  },
+  "ambitions": {
+    "title": "Törekvésünk, hogy a gyerekek",
+    "first": "Megtanuljanak tanulni",
+    "second": "Merjenek kérdezni",
+    "third": "Érezzék jól magukat tanulás közben",
+    "fourth": "Ne küzdjenek az önbizalomhiánnyal, ismerjék meg saját értékeiket, képességeiket"
+  },
+  "waitingfor": {
+    "title": "Kiket várunk?",
+    "firstSection": "Tanulószobánkba általános iskola felső tagozatos tanulókat várunk, hétfőtől péntekig 13:30-tól 16:00-ig biztosítjuk a felügyeletüket. Igény szerint ettől el tudunk térni.",
+    "secondSection": "Ez idő alatt elkészítjük az írásbeli házi feladatokat, mindenki megtanulja a szóbeli feladatokat, amit aztán ki is kérdezünk a gyerekektől. Ha szükségesnek érezzük, akkor még gyakoroljuk az anyagot. Majd bepakoljuk a tanszereket a következő napra. A könyveket és a füzeteket a tanulószobában is lehet hagyni, így mindig kéznél vannak.",
+    "thirdSection": "Ha mindezzel készen vagyunk, lazítunk, pihenünk (társasjáték, beszélgetés, testmozgás, stb.)."
+  },
+  "whoWeAre": {
+    "title": "Kik vagyunk?",
+    "name": "Borosné Müller Tímea, Alapító",
+    "introduction": "Fontos hogy tudd, kire bízod a gyermeked, ha a Kuckó Tanulószobát választjátok!",
+    "firstSection": "Borosné Müller Tímea vagyok, a Kuckó Tanulószoba alapítója. Az Eszterházy Károly Tanárképző Főiskolán végeztem matematika-számítástechnika tanári szakon 1994-ben, majd a Debreceni Egyetem informatika kiegészítőjét végeztem el. Pályafutásomat napközis nevelőként kezdtem, majd informatikát és matematikát tanítottam általános és több középiskolában is. Harmadik fiam születése óta a családi vállalkozásunk tagja vagyok, de mindig is visszavágytam a tanításhoz.",
+    "secondSection": "Sajnos a mai közoktatásban nem minden gyermek tudja megtanulni, begyakorolni a tananyagot. Ezen szeretnénk segíteni a Tanulószobánkban, ahol a gyerekekkel együtt elkészítjük a házi feladatot, az esetleges lemaradásokat bepótoljuk. Nem egy tantárgyból korrepetálunk, hanem szinte mindenből felkészülünk. Célunk, hogy egyedül is menjen a tanulás, több tanulási módszert is alkalmazunk. A folyamatos tanulás a jegyeken is meglátszik.",
+    "thirdSection": "Ha szeretnél gyermekeddel csatlakozni hozzánk, keress bátran!"
+  },
+  "galery": {
+    "sectionTitle": "Nézz be hozzánk!",
+    "imgs": [
+      {
+        "title": "Külső tér",
+        "url": "/galery/kucko1.webp",
+        "description": "A tanulószobához tartozik egy kis fedett terasz és gondozott udvar, ami biztosítja a szabadban a játékot. Foci, hinta a szünetekben való kikapcsolódást szolgálja."
+      },
+      {
+        "title": "Konyha",
+        "url": "/galery/kucko5.webp",
+        "description": "A tanulószoba konyhája nagy asztallal és kényelmes székekkel van berendezve, itt is lehet tanulni. Mikró és vízforraló is rendelkezésre áll, így a hozott ebédet kényelmesen el lehet fogyasztani."
+      },
+      {
+        "title": "Kis tanulószoba",
+        "url": "/galery/kucko3.webp",
+        "description": "Ez a tágas szoba több asztallal, kényelmes fotelekkel és székekkel van berendezve. Ide tudnak különvonulni a gyerekek, ha egyénileg kell tanulniuk (pl. verset)."
+      },
+      {
+        "title": "Nagyterem",
+        "url": "/galery/kucko4.webp",
+        "description": "A tágas nagyterem ideális nagyobb foglalkozásokhoz, csoportos munkához vagy rendezvényekhez. Sok asztal és szék áll rendelkezésre, így kényelmesen elfér mindenki."
+      },
+      {
+        "title": "Nagy tanulószoba",
+        "url": "/galery/kucko5.webp",
+        "description": "Ez a fő termünk, itt lehet a legtöbb gyerekkel egyszerre foglalkozni. De tanulás után akár le is lehet pihenni. Itt tartjuk a felvételi felkészítőket is."
+      }
+    ]
+  },
+  "theySaid": {
+    "sectionTitle": "Rólunk mondták",
+    "said": [
+      {
+        "text": "Azt mondta ma az egyik tanítványom, hogy \"Timi, régebben nem értettem a geometriát, de mióta hozzád járok, már tudom!\" - Ennél szebb dicséret nem is kell egy matektanárnak!",
+        "name": "- Timi"
+      },
+      {
+        "text": "Egy jó mentor mellett mindig biztos a fejlődés! Szeret a fiam veled együtt matekozni! Szeretném megköszönni áldozatos munkádat, ami nélkül nem jött volna össze a sikeres felvételi!",
+        "name": "- Orsolya"
+      },
+      {
+        "text": "Köszönjük szépen a sok-sok segítséget!",
+        "name": "- Levente"
+      },
+      {
+        "text": "A lendület fantasztikus!",
+        "name": "- Fanni"
+      },
+      {
+        "text": "Ámulok és bámulok mit hozol ki belőle most 5-ben, amikor új tanárok, új tantárgyak vannak, sok dogával és feleléssel megspékelve!",
+        "name": "- Judit"
+      },
+      {
+        "text": "Szuper csapat munka amit csináltok, szuper módszerekkel!",
+        "name": "- Bence"
+      },
+      {
+        "text": "Álmomban sem gondoltam volna hogy így veszi az 5. osztályt.... a sok új tanárt, a sok tananyagot, a sok felelést, a sok röpdogát",
+        "name": "- Noémi"
+      },
+      {
+        "text": "Köszönjük a segítséget, a biztatást, a törődést!",
+        "name": "- Lili"
+      },
+      {
+        "text": "Úgy örülök. Én is azt veszem észre, hogy összeszedettebb, magabiztosabb.",
+        "name": "- István"
+      }
+    ]
+  },
+  "prices": {
+    "sectionTitle": "Tanszobai árak",
+    "brothers": "Testvérek esetén 3000 Ft/fő kedvezmény",
+    "priceWrapper": [
+      {
+        "title": "Heti 4 délután",
+        "firstDescription": "Rugalmas megoldás azok számára, akik más tevékenységeiket is szeretnék összehangolni",
+        "secondDescription": "Négy választott délután a héten",
+        "price": "42.000 Ft/hónap"
+      },
+      {
+        "title": "Heti 5 délután",
+        "firstDescription": "Ideális azoknak, akik rendszeres támogatást szeretnének",
+        "secondDescription": "Hétfőtől péntekig elérhető programok",
+        "thirdDescription": "Folyamatos mentorálás, a legjobb megoldás",
+        "price": "47.000 Ft/hónap"
+      },
+      {
+        "title": "Heti 3 délután",
+        "firstDescription": "Tökéletes választás a kezdéshez vagy kiegészítő tanuláshoz",
+        "secondDescription": "Három délután, intenzív készségfejlesztéssel",
+        "thirdDescription": "Kiemelten fókuszált tanulási program",
+        "price": "37.000 Ft/hónap"
+      }
+    ],
+    "firstP": "Ezek teljes havi díjak, a tanítási szünetek alatt is van lehetőség felzárkóztatásra. Amennyiben betegség miatt hiányzik a gyermek, adott napokon vagy délelőtt online pótolhat.",
+    "secondP": "Az első alkalom ingyenes, az első hét próbahét. Ezek után a szülőkkel fél éves megállapodást írunk, mivel hosszútávon működik jól ez a rendszer."
+  },
+  "admission": {
+    "sectionTitle": "Felvételi felkészítő nyolcadikosoknak",
+    "introduction":  "Lépj magabiztosan a középiskolába!",
+    "secondIntroduction": "A középiskolai felvételi az egyik legfontosabb mérföldkő a diákok életében. Mi azért vagyunk, hogy ezt a kihívást is magabiztosan és felkészülten vegyék.",
+    "firstP": "Október elejétől a januári vizsgáig hetente egy-egy alkalommal 2x45 percben tartunk foglalkozásokat matematikából és magyar nyelvből. Szisztematikusan átismételjük az általános iskolai tananyagot, külön kitérve a felvételi feladatsorban leggyakrabban előforduló feladattípusokra. Ilyen többek között magyarból a helyesírás, az érvelés és a szövegértés, matematikából a szöveges feladatok, a geometria, algebra, logikai feladatok.",
+    "secondP": "A felkészülés vége felé több próbafelvételit írunk, együtt kijavítjuk, megbeszéljük a megoldásokat is. A kemény munka meghozza gyümölcsét: a gyerekek magabiztosan vágnak neki az első nagy megmérettetésüknek.",
+    "prices": "Ára: tanszobásoknak 2000 FT/ 90 perc, külsősöknek 4000 FT/90 perc.",
+    "img": "/felveteli2.webp"
+  },
+  "contacts": {
+    "sectionTitle": "Elérhetőségek",
+    "address": "Eger, Széchenyi u. 33.",
+    "name": "Borosné Müller Tímea",
+    "phone": "0620/931-7207",
+    "facebookName": "Kuckó Tanulószoba Eger",
+    "facebookLink": "https://www.facebook.com/kucko.tanuloszoba",
+    "mail": "bmtimi@gmail.com",
+    "content": "A Tanulószoba több belvárosi iskola közelében található, így a gyerekek könnyen, akár önállóan is eljuthatnak hozzánk. A közelben helyi járatú buszmegálló is található, amely tovább egyszerűsíti a megközelítést.",
+    "phoneIcon": "/telephone.webp",
+    "faceIcon": "/facebook.webp",
+    "mailIcon": "/mail.webp",
+    "mapImg": "/map.webp",
+    "mapLink": "https://maps.app.goo.gl/Do6ybc74zfEqt1bK8"
+  },
+  "roomRental": {
+    "sectionTitle": "Terembérlés",
+    "image": "/galery/kucko4.webp",
+    "hatUrl": "/graduate-hat.webp",
+    "bookUrl": "/open-book.webp",
+    "meetingUrl": "/meeting.webp",
+    "title": "Szeretnél egy csendes, inspiráló környezetet tanuláshoz, megbeszélésekhez vagy kisebb rendezvényekhez? ",
+    "introduction": "Termeink kényelmes és barátságos légkört biztosítanak, ahol zavartalanul koncentrálhatsz vagy együtt dolgozhatsz másokkal.",
+    "studyGroup": "Tanulócsoportok, korrepetálások – Ideális helyszín tanároknak és diákoknak",
+    "workshops": "Workshopok, tréningek – Kisebb előadásokhoz, fejlesztő foglalkozásokhoz",
+    "publicEvents": "Közösségi eseménye, szülői találkozók – Kötetlen beszélgetésekhez, közösségépítéshez",
+    "equipments": [
+      "Wi-Fi",
+      "Kényelmes asztalok és székek (variálható berendezés)",
+      "Fejlesztő társasjátékok, klíma és fűtés"
+    ],
+    "prices": [
+      "Termeink hétköznap 13 óráig vagy 16 óra után bérelhetők.",
+      "2-4 órás bérlés esetén a bérleti díj 3500 Ft /óra. 4 órát meghaladó foglalás esetén a bérlés 3000 ft /óra. Ezekről az összegekről számlát állítunk ki!",
+      "További részletekért keress e-mailben vagy telefonon!"
+    ]
+  },
+  "footer": {
+    "copyright": "Kuckó tanulószoba"
+  }
+}
