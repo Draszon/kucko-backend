@@ -9,6 +9,10 @@ import GalerySection from '@/Components/Sections/GalerySection.vue';
 import { Head } from '@inertiajs/vue3';
 import TheySad from '@/Components/Sections/TheySad.vue';
 import Prices from '@/Components/Sections/Prices.vue';
+import AdmissionSection from '@/Components/Sections/AdmissionSection.vue';
+import RoomRentalSection from '@/Components/Sections/RoomRentalSection.vue';
+import Footer from '@/Components/Footer.vue';
+import ContactsSection from '@/Components/Sections/ContactsSection.vue';
 </script>
 
 <template>
@@ -17,7 +21,7 @@ import Prices from '@/Components/Sections/Prices.vue';
 <!--Header menük-->
 <Header />
 
-<main class="text-black bg-bgWhite">
+<main class="text-dark bg-white antialiased">
 
   <!--Hero szekció-->
   <HeroSection />
@@ -43,12 +47,16 @@ import Prices from '@/Components/Sections/Prices.vue';
   <!--Áraink szekció-->
   <Prices />
   
-  <section id="admission" class="scroll-mt-16 w-full text-dark flex justify-center py-10"></section>
+  <!-- Felvételi szekció -->
+  <AdmissionSection />
 
-  <section id="room-rental" class="scroll-mt-16 w-full text-dark flex justify-center py-10"></section>
+  <!-- Terembérlés szekció -->
+  <RoomRentalSection />
 
-  <section id="contacts" class="scroll-mt-16 w-full text-dark flex justify-center py-10"></section>
+  <!-- Elérhetőségek szekció -->
+  <ContactsSection />
 </main>
 
-<footer></footer>
+<!-- Footer -->
+<Footer />
 </template>
