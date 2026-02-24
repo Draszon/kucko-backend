@@ -1,5 +1,20 @@
 <script setup>
+import { computed } from 'vue';
 
+const props = defineProps({
+  rentals: Array,
+});
+
+const resolveImage = (path) => {
+  if (!path) return null;
+  if (path.startsWith('/') || path.startsWith('http')) return path;
+  return '/storage/' + path;
+};
+
+const mainImage = computed(() => {
+  const withImage = props.rentals?.find(r => r.image_path);
+  return resolveImage(withImage?.image_path) ?? '/images/galery/kucko4.webp';
+});
 </script>
 
 <template>
@@ -19,7 +34,7 @@
           <div class="relative">
             <div class="absolute -inset-4 bg-gradient-to-r from-secondary-200 via-primary-200 to-accent-200 rounded-3xl blur-2xl opacity-40"></div>
             <img 
-              src="/images/galery/kucko4.webp" 
+              :src="mainImage" 
               alt="Terembérlés" 
               class="relative rounded-2xl shadow-card w-full object-cover"
             >
@@ -106,13 +121,9 @@
               Termeink hétköznap <strong>13 óráig</strong> vagy <strong>16 óra után</strong> bérelhetők.
             </p>
             <div class="grid sm:grid-cols-2 gap-4 mb-4">
-              <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-                <p class="text-white/70 text-sm mb-1">2-4 órás bérlés</p>
-                <p class="text-2xl font-bold">3 500 Ft<span class="text-base font-normal text-white/70"> / óra</span></p>
-              </div>
-              <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-                <p class="text-white/70 text-sm mb-1">4 órát meghaladó</p>
-                <p class="text-2xl font-bold">3 000 Ft<span class="text-base font-normal text-white/70"> / óra</span></p>
+              <div v-for="rental in rentals" :key="rental.id" class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+                <p class="text-white/70 text-sm mb-1">{{ rental.price_label }}</p>
+                <p class="text-2xl font-bold">{{ rental.price }}</p>
               </div>
             </div>
             <p class="text-white/70 text-sm">Ezekről az összegekről számlát állítunk ki!</p>

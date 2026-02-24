@@ -1,5 +1,16 @@
 <script setup>
   import Title from '../Title.vue';
+
+  const props = defineProps({
+    subjects: Array,
+    prices: Array,
+  });
+
+  const subjectStyles = [
+    { bg: 'bg-accent-100', text: 'text-accent-600', icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253' },
+    { bg: 'bg-secondary-100', text: 'text-secondary-600', icon: 'M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z' },
+    { bg: 'bg-primary-100', text: 'text-primary-600', icon: 'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z' },
+  ];
 </script>
 
 <template>
@@ -23,28 +34,20 @@
           </p>
           
           <div class="grid sm:grid-cols-2 gap-4">
-            <div class="bg-white rounded-xl p-5 shadow-soft">
+            <div 
+              v-for="(subject, index) in subjects" 
+              :key="subject.id" 
+              class="bg-white rounded-xl p-5 shadow-soft"
+            >
               <div class="flex items-center gap-3 mb-3">
-                <div class="w-10 h-10 bg-accent-100 rounded-lg flex items-center justify-center">
-                  <svg class="w-5 h-5 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                <div :class="['w-10 h-10 rounded-lg flex items-center justify-center', subjectStyles[index % subjectStyles.length].bg]">
+                  <svg :class="['w-5 h-5', subjectStyles[index % subjectStyles.length].text]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="subjectStyles[index % subjectStyles.length].icon" />
                   </svg>
                 </div>
-                <h4 class="font-semibold text-dark">Magyar nyelv</h4>
+                <h4 class="font-semibold text-dark">{{ subject.name }}</h4>
               </div>
-              <p class="text-gray-500 text-sm">Helyesírás, érvelés, szövegértés</p>
-            </div>
-            
-            <div class="bg-white rounded-xl p-5 shadow-soft">
-              <div class="flex items-center gap-3 mb-3">
-                <div class="w-10 h-10 bg-secondary-100 rounded-lg flex items-center justify-center">
-                  <svg class="w-5 h-5 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <h4 class="font-semibold text-dark">Matematika</h4>
-              </div>
-              <p class="text-gray-500 text-sm">Szöveges feladatok, geometria, algebra, logika</p>
+              <p class="text-gray-500 text-sm">{{ subject.description }}</p>
             </div>
           </div>
           
@@ -56,13 +59,9 @@
           <div class="bg-gradient-to-r from-primary-400 to-primary-600 rounded-2xl p-6 text-white">
             <h4 class="font-semibold text-lg mb-4">Áraink</h4>
             <div class="grid sm:grid-cols-2 gap-4">
-              <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-                <p class="text-white/70 text-sm mb-1">Tanszobásoknak</p>
-                <p class="text-2xl font-bold">2 000 Ft<span class="text-base font-normal text-white/70"> / 90 perc</span></p>
-              </div>
-              <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-                <p class="text-white/70 text-sm mb-1">Külsősöknek</p>
-                <p class="text-2xl font-bold">4 000 Ft<span class="text-base font-normal text-white/70"> / 90 perc</span></p>
+              <div v-for="admPrice in prices" :key="admPrice.id" class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+                <p class="text-white/70 text-sm mb-1">{{ admPrice.label }}</p>
+                <p class="text-2xl font-bold">{{ admPrice.price }}</p>
               </div>
             </div>
           </div>

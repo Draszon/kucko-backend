@@ -1,5 +1,7 @@
 <script setup>
-
+const props = defineProps({
+  contacts: Object,
+});
 </script>
 
 <template>
@@ -23,7 +25,7 @@
             </div>
             <div>
               <h3 class="text-white font-semibold text-lg mb-1">Cím</h3>
-              <p class="text-white/80">Eger, Széchenyi u. 33.</p>
+              <p class="text-white/80">{{ contacts?.address }}</p>
             </div>
           </div>
           
@@ -35,13 +37,13 @@
               </svg>
             </div>
             <div>
-              <h3 class="text-white font-semibold text-lg mb-1">Borosné Müller Tímea</h3>
-              <a href="tel:+36209317207" class="text-white/80 hover:text-white transition-colors">+36 20 931 7207</a>
+              <h3 class="text-white font-semibold text-lg mb-1">{{ contacts?.contact_name }}</h3>
+              <a :href="'tel:' + contacts?.phone?.replace(/\s/g, '')" class="text-white/80 hover:text-white transition-colors">{{ contacts?.phone }}</a>
             </div>
           </div>
           
           <!-- Facebook -->
-          <a href="https://www.facebook.com/kuckotanuloszoba" target="_blank" class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 flex items-start gap-4 hover:bg-white/20 transition-colors">
+          <a :href="contacts?.facebook_url" target="_blank" class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 flex items-start gap-4 hover:bg-white/20 transition-colors">
             <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
               <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
@@ -49,12 +51,12 @@
             </div>
             <div>
               <h3 class="text-white font-semibold text-lg mb-1">Facebook</h3>
-              <p class="text-white/80">Kuckó Tanulószoba Eger</p>
+              <p class="text-white/80">{{ contacts?.facebook_name }}</p>
             </div>
           </a>
           
           <!-- E-mail -->
-          <a href="mailto:bmtimi@gmail.com" class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 flex items-start gap-4 hover:bg-white/20 transition-colors">
+          <a :href="'mailto:' + contacts?.email" class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 flex items-start gap-4 hover:bg-white/20 transition-colors">
             <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
               <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -62,7 +64,7 @@
             </div>
             <div>
               <h3 class="text-white font-semibold text-lg mb-1">E-mail</h3>
-              <p class="text-white/80">bmtimi@gmail.com</p>
+              <p class="text-white/80">{{ contacts?.email }}</p>
             </div>
           </a>
         </div>
@@ -71,7 +73,7 @@
         <div class="space-y-4">
           <div class="bg-white rounded-2xl overflow-hidden shadow-soft h-80 lg:h-full min-h-[320px]">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2660.8847837847433!2d20.372944076891475!3d47.90227297121684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47408e9e7c5c5e3d%3A0x4c0d7b4c4c4c4c4c!2sEger%2C%20Sz%C3%A9chenyi%20u.%2033%2C%203300!5e0!3m2!1shu!2shu!4v1706700000000!5m2!1shu!2shu"
+              :src="contacts?.maps_embed_url"
               width="100%" 
               height="100%" 
               style="border:0;" 
@@ -89,7 +91,7 @@
                 <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
               </svg>
               <p class="text-white/90 text-sm leading-relaxed">
-                A Tanulószoba több belvárosi iskola közelében található, így a gyerekek könnyen, akár önállóan is eljuthatnak hozzánk. A közelben helyi járatú buszmegálló is található, amely tovább egyszerűsíti a megközelítést.
+                {{ contacts?.accessibility_info }}
               </p>
             </div>
           </div>

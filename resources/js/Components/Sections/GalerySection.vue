@@ -3,18 +3,15 @@ import { ref } from 'vue';
 import Arrow from '../Arrow.vue';
 import Title from '../Title.vue';
 
-const images = [
-  {
-    src: '/images/galery/kucko1.webp',
-    title: 'Nagy tanulószoba',
-    description: 'Ez a fő termünk, itt lehet a legtöbb gyerekkel egyszerre foglalkozni. De tanulás után akár le is lehet pihenni. Itt tartjuk a felvételi felkészítőket is.'
-  },
-  {
-    src: '/images/galery/kucko2.webp',
-    title: 'Kis tanulószoba',
-    description: 'Ez pedig a másik kép szövege!'
-  }
-];
+const props = defineProps({
+  images: Array,
+});
+
+const resolveImage = (path) => {
+  if (!path) return null;
+  if (path.startsWith('/') || path.startsWith('http')) return path;
+  return '/storage/' + path;
+};
 
 const currentIndex = ref(0);
 </script>
@@ -30,7 +27,7 @@ const currentIndex = ref(0);
           <div class="absolute -inset-4 bg-gradient-to-r from-primary-200 via-secondary-200 to-accent-200 rounded-3xl blur-2xl opacity-40 group-hover:opacity-60 transition-opacity"></div>
           <div class="relative rounded-2xl overflow-hidden shadow-card">
             <img 
-              :src="images[currentIndex].src" 
+              :src="resolveImage(images[currentIndex].image_path)" 
               :alt="images[currentIndex].title"
               class="w-full aspect-[4/3] object-cover"
             >

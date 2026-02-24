@@ -13,6 +13,19 @@ import AdmissionSection from '@/Components/Sections/AdmissionSection.vue';
 import RoomRentalSection from '@/Components/Sections/RoomRentalSection.vue';
 import Footer from '@/Components/Footer.vue';
 import ContactsSection from '@/Components/Sections/ContactsSection.vue';
+
+const props = defineProps({
+  waitingForBlocks: Array,
+  waitingForListItems: Array,
+  teamMembers: Array,
+  galleryImages: Array,
+  testimonials: Array,
+  pricingPlans: Array,
+  admissionSubjects: Array,
+  admissionPrices: Array,
+  roomRentals: Array,
+  contacts: Object,
+});
 </script>
 
 <template>
@@ -33,28 +46,28 @@ import ContactsSection from '@/Components/Sections/ContactsSection.vue';
   <EndeavorSection />
 
   <!--Kiket várunk szekció-->
-  <WaitingForSection />
+  <WaitingForSection :blocks="waitingForBlocks" :list-items="waitingForListItems" />
 
   <!--Bemutatkozás szekció-->
-  <WhoWeAreSection />
+  <WhoWeAreSection :members="teamMembers" />
 
   <!--Nézz be hozzánk szekció-->
-  <GalerySection />
+  <GalerySection :images="galleryImages" />
 
   <!--Rólunk mondták-->
-  <TheySad />
+  <TheySad :testimonials="testimonials" />
 
   <!--Áraink szekció-->
-  <Prices />
+  <Prices :plans="pricingPlans" />
   
   <!-- Felvételi szekció -->
-  <AdmissionSection />
+  <AdmissionSection :subjects="admissionSubjects" :prices="admissionPrices" />
 
   <!-- Terembérlés szekció -->
-  <RoomRentalSection />
+  <RoomRentalSection :rentals="roomRentals" />
 
   <!-- Elérhetőségek szekció -->
-  <ContactsSection />
+  <ContactsSection :contacts="contacts" />
 </main>
 
 <!-- Footer -->
