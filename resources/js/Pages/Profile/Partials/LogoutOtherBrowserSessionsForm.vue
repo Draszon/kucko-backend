@@ -72,7 +72,7 @@ const closeModal = () => {
 
                     <div class="ms-3">
                         <div class="text-sm text-gray-600">
-                            {{ session.agent.platform ? session.agent.platform : 'Unknown' }} - {{ session.agent.browser ? session.agent.browser : 'Unknown' }}
+                            {{ session.agent.platform ? session.agent.platform : 'Ismeretlen' }} - {{ session.agent.browser ? session.agent.browser : 'Ismeretlen' }}
                         </div>
 
                         <div>
