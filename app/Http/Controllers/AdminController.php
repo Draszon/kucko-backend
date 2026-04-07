@@ -12,11 +12,36 @@ use App\Models\AdmissionPrice;
 use App\Models\RoomRental;
 use App\Models\Contact;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
 class AdminController extends Controller
 {
+    private function resolvePublicPath(string $relativePath = ''): string
+    {
+        $base = rtrim(env('PUBLIC_PATH') ?: public_path(), '/');
+        return $relativePath ? $base . '/' . ltrim($relativePath, '/') : $base;
+    }
+
+    private function storeUploadedFile($file, string $subdirectory): string
+    {
+        $dir = $this->resolvePublicPath($subdirectory);
+        if (!is_dir($dir)) {
+            mkdir($dir, 0755, true);
+        }
+        $filename = uniqid() . '_' . time() . '.' . $file->getClientOriginalExtension();
+        $file->move($dir, $filename);
+        return '/' . ltrim($subdirectory, '/') . '/' . $filename;
+    }
+
+    private function deletePublicFile(?string $relativePath): void
+    {
+        if (!$relativePath) return;
+        $fullPath = $this->resolvePublicPath($relativePath);
+        if (file_exists($fullPath)) {
+            unlink($fullPath);
+        }
+    }
+
     /**
      * Sanitize validated data - strip HTML tags from all string values.
      */
@@ -86,7 +111,7 @@ class AdminController extends Controller
         $data = $this->sanitize(collect($validated)->except(['image_path'])->all());
 
         if ($request->hasFile('image_path')) {
-            $data['image_path'] = $request->file('image_path')->store('images/team', 'public');
+            $data['image_path'] = $this->storeUploadedFile($request->file('image_path'), 'images/team');
         }
 
         TeamMember::create($data);
@@ -110,10 +135,8 @@ class AdminController extends Controller
         $data = $this->sanitize(collect($validated)->except(['image_path'])->all());
 
         if ($request->hasFile('image_path')) {
-            if ($teamMember->image_path) {
-                Storage::disk('public')->delete($teamMember->image_path);
-            }
-            $data['image_path'] = $request->file('image_path')->store('images/team', 'public');
+            $this->deletePublicFile($teamMember->image_path);
+            $data['image_path'] = $this->storeUploadedFile($request->file('image_path'), 'images/team');
         }
 
         $teamMember->update($data);
@@ -123,9 +146,7 @@ class AdminController extends Controller
 
     public function destroyTeamMember(TeamMember $teamMember)
     {
-        if ($teamMember->image_path) {
-            Storage::disk('public')->delete($teamMember->image_path);
-        }
+        $this->deletePublicFile($teamMember->image_path);
 
         $teamMember->delete();
 
@@ -146,7 +167,7 @@ class AdminController extends Controller
         ]);
 
         $data = $this->sanitize(collect($validated)->except(['image_path'])->all());
-        $data['image_path'] = $request->file('image_path')->store('images/gallery', 'public');
+        $data['image_path'] = $this->storeUploadedFile($request->file('image_path'), 'images/gallery');
 
         GalleryImage::create($data);
 
@@ -166,10 +187,8 @@ class AdminController extends Controller
         $data = $this->sanitize(collect($validated)->except(['image_path'])->all());
 
         if ($request->hasFile('image_path')) {
-            if ($galleryImage->image_path) {
-                Storage::disk('public')->delete($galleryImage->image_path);
-            }
-            $data['image_path'] = $request->file('image_path')->store('images/gallery', 'public');
+            $this->deletePublicFile($galleryImage->image_path);
+            $data['image_path'] = $this->storeUploadedFile($request->file('image_path'), 'images/gallery');
         }
 
         $galleryImage->update($data);
@@ -179,9 +198,7 @@ class AdminController extends Controller
 
     public function destroyGalleryImage(GalleryImage $galleryImage)
     {
-        if ($galleryImage->image_path) {
-            Storage::disk('public')->delete($galleryImage->image_path);
-        }
+        $this->deletePublicFile($galleryImage->image_path);
 
         $galleryImage->delete();
 
@@ -330,10 +347,8 @@ class AdminController extends Controller
         $data = $this->sanitize(collect($validated)->except(['image_path'])->all());
 
         if ($request->hasFile('image_path')) {
-            if ($roomRental->image_path) {
-                Storage::disk('public')->delete($roomRental->image_path);
-            }
-            $data['image_path'] = $request->file('image_path')->store('images/room-rentals', 'public');
+            $this->deletePublicFile($roomRental->image_path);
+            $data['image_path'] = $this->storeUploadedFile($request->file('image_path'), 'images/room-rentals');
         }
 
         $roomRental->update($data);
