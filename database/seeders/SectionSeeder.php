@@ -42,26 +42,6 @@ class SectionSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            [
-                'title' => 'Házi feladat elkészítése',
-                'description' => 'Elkészítjük az írásbeli házi feladatokat, mindenki megtanulja a szóbeli feladatokat, amit aztán ki is kérdezünk. Ha szükségesnek érezzük, még gyakoroljuk az anyagot.',
-                'icon_type' => 'clipboard',
-                'type' => 'block',
-                'sort_order' => 2,
-                'is_active' => true,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'title' => 'Pihenés és játék',
-                'description' => 'Ha mindezzel készen vagyunk, lazítunk, pihenünk – társasjáték, beszélgetés, testmozgás. A könyveket és a füzeteket a tanulószobában is lehet hagyni.',
-                'icon_type' => 'smile',
-                'type' => 'block',
-                'sort_order' => 3,
-                'is_active' => true,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
         ]);
 
         // Kiket várunk - lista elemek (oldalsó kártya)
@@ -117,6 +97,7 @@ class SectionSeeder extends Seeder
             'image_path' => '/images/profilkep.webp',
             'bio' => "Borosné Müller Tímea vagyok, a Kuckó Tanulószoba alapítója.\n\nPályafutásomat napközis nevelőként kezdtem.\n\nSajnos a mai közoktatásban nem minden gyermek kapja meg azt a figyelmet és segítséget, amire szüksége lenne.",
             'facebook_url' => null,
+            'email' => 'bmtimi@gmail.com',
             'sort_order' => 1,
             'is_active' => true,
         ]);
@@ -205,7 +186,7 @@ class SectionSeeder extends Seeder
                 'subtitle' => 'Kipróbáláshoz ideális',
                 'price' => 32000,
                 'price_unit' => 'Ft/hó',
-                'features' => json_encode(['Heti 2 alkalom', 'Házi feladat segítség', 'Szóbeli kikérdezés', 'Játék és pihenő idő']),
+                'features' => json_encode(['Házi feladat segítség', 'Szóbeli kikérdezés', 'Játék és pihenő idő', 'Tanszer tárolás', 'Gyakorlás', 'Kiemelt figyelem']),
                 'sibling_discount' => '3 000 Ft/fő kedvezmény',
                 'is_featured' => false,
                 'sort_order' => 1,
@@ -218,7 +199,7 @@ class SectionSeeder extends Seeder
                 'subtitle' => 'Rendszeres segítség',
                 'price' => 37000,
                 'price_unit' => 'Ft/hó',
-                'features' => json_encode(['Heti 3 alkalom', 'Házi feladat segítség', 'Szóbeli kikérdezés', 'Játék és pihenő idő', 'Tanszer tárolás']),
+                'features' => json_encode(['Házi feladat segítség', 'Szóbeli kikérdezés', 'Játék és pihenő idő', 'Tanszer tárolás', 'Gyakorlás', 'Kiemelt figyelem']),
                 'sibling_discount' => '3 000 Ft/fő kedvezmény',
                 'is_featured' => false,
                 'sort_order' => 2,
@@ -231,7 +212,7 @@ class SectionSeeder extends Seeder
                 'subtitle' => 'Intenzív támogatás',
                 'price' => 42000,
                 'price_unit' => 'Ft/hó',
-                'features' => json_encode(['Heti 4 alkalom', 'Házi feladat segítség', 'Szóbeli kikérdezés', 'Játék és pihenő idő', 'Tanszer tárolás', 'Gyakorlás']),
+                'features' => json_encode(['Házi feladat segítség', 'Szóbeli kikérdezés', 'Játék és pihenő idő', 'Tanszer tárolás', 'Gyakorlás', 'Kiemelt figyelem']),
                 'sibling_discount' => '3 000 Ft/fő kedvezmény',
                 'is_featured' => false,
                 'sort_order' => 3,
@@ -244,7 +225,7 @@ class SectionSeeder extends Seeder
                 'subtitle' => 'Teljes körű felügyelet',
                 'price' => 47000,
                 'price_unit' => 'Ft/hó',
-                'features' => json_encode(['Heti 5 alkalom', 'Házi feladat segítség', 'Szóbeli kikérdezés', 'Játék és pihenő idő', 'Tanszer tárolás', 'Gyakorlás', 'Kiemelt figyelem']),
+                'features' => json_encode(['Házi feladat segítség', 'Szóbeli kikérdezés', 'Játék és pihenő idő', 'Tanszer tárolás', 'Gyakorlás', 'Kiemelt figyelem']),
                 'sibling_discount' => '3 000 Ft/fő kedvezmény',
                 'is_featured' => true,
                 'sort_order' => 4,
@@ -330,7 +311,7 @@ class SectionSeeder extends Seeder
         Contact::insert([
             [
                 'key' => 'address',
-                'value' => 'Eger, Széchenyi u. 33.',
+                'value' => 'Széchenyi István u. 33. Eger',
                 'label' => 'Cím',
                 'sort_order' => 1,
                 'created_at' => now(),
@@ -378,7 +359,7 @@ class SectionSeeder extends Seeder
             ],
             [
                 'key' => 'maps_embed_url',
-                'value' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2652.123!2d20.3731!3d47.9025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDU0JzA5LjAiTiAyMMKwMjInMjMuMiJF!5e0!3m2!1shu!2shu!4v1',
+                'value' => 'https://www.google.com/maps?q=Sz%C3%A9chenyi%20Istv%C3%A1n%20u.%2033.%20Eger&output=embed',
                 'label' => 'Google Maps beágyazás',
                 'sort_order' => 7,
                 'created_at' => now(),

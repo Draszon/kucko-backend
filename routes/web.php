@@ -2,9 +2,27 @@
 
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\AdminController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MainController::class, 'index']);
+
+Route::get('/maintenance/refresh-homepage-2eD4qN8vR6xK9mP3sT7w', function () {
+    try {
+        Artisan::call('db:seed', [
+            '--class' => 'ApplyHomepageContentUpdateSeeder',
+            '--force' => true,
+        ]);
+        Artisan::call('optimize:clear');
+        Artisan::call('optimize');
+
+        return response('Kész: a tartalomfrissítés és az optimalizálás sikeresen lefutott.', 200)
+            ->header('Content-Type', 'text/plain; charset=UTF-8');
+    } catch (\Throwable $exception) {
+        return response('Hiba: '.$exception->getMessage(), 500)
+            ->header('Content-Type', 'text/plain; charset=UTF-8');
+    }
+});
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified', 'throttle:60,1'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');

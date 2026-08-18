@@ -1,4 +1,5 @@
 <script setup>
+import { computed } from 'vue';
 import Title from '../Title.vue';
 
 const props = defineProps({
@@ -8,6 +9,8 @@ const props = defineProps({
 const formatPrice = (price) => {
   return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 };
+
+const includedFeatures = computed(() => props.plans?.[0]?.features ?? []);
 </script>
 
 <template>
@@ -51,16 +54,7 @@ const formatPrice = (price) => {
             <span :class="['text-3xl font-bold', !plan.is_featured && 'text-dark']">{{ formatPrice(plan.price) }}</span>
             <span :class="['text-sm', plan.is_featured ? 'text-white/70' : 'text-gray-500']"> {{ plan.price_unit }}</span>
           </div>
-          
-          <ul class="space-y-2 mb-6 text-sm">
-            <li v-for="(feature, fIndex) in plan.features" :key="fIndex" class="flex items-start gap-2">
-              <svg :class="['w-4 h-4 flex-shrink-0 mt-0.5', plan.is_featured ? 'text-secondary-300' : 'text-secondary-500']" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-              </svg>
-              <span :class="plan.is_featured ? 'text-white/90' : 'text-gray-600'">{{ feature }}</span>
-            </li>
-          </ul>
-          
+
           <div :class="['text-center text-xs font-medium mb-4', plan.is_featured ? 'text-white/80' : 'text-primary-600']">
             Testvérek: {{ plan.sibling_discount }}
           </div>
@@ -77,6 +71,27 @@ const formatPrice = (price) => {
             Érdeklődöm
           </a>
         </div>
+      </div>
+
+      <div v-if="includedFeatures.length" class="mt-10 max-w-4xl mx-auto rounded-2xl border border-secondary-200 bg-gradient-to-br from-secondary-50 via-white to-primary-50 px-6 py-7 sm:px-8 shadow-soft">
+        <div class="flex items-center justify-center gap-3 mb-6">
+          <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-secondary-500 text-white shadow-sm">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+            </svg>
+          </span>
+          <h3 class="font-display font-semibold text-xl text-dark">Minden csomag tartalmazza</h3>
+        </div>
+        <ul class="grid sm:grid-cols-2 gap-3">
+          <li v-for="feature in includedFeatures" :key="feature" class="flex items-center gap-3 rounded-lg bg-white/80 px-4 py-3 text-gray-700 shadow-sm">
+            <span class="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-secondary-100 text-secondary-600">
+              <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+              </svg>
+            </span>
+            <span class="text-sm font-medium">{{ feature }}</span>
+          </li>
+        </ul>
       </div>
       
       <!-- CTA -->
