@@ -3,7 +3,7 @@ import { ref, computed } from 'vue';
 import { usePage } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import SectionEditor from '@/Components/Admin/SectionEditor.vue';
-import PricingPlanEditor from '@/Components/Admin/PricingPlanEditorSimple.vue';
+import PricingPlanEditor from '@/Components/Admin/PricingPlanEditor.vue';
 
 const props = defineProps({
   waitingForBlocks: Array,

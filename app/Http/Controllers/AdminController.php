@@ -274,6 +274,13 @@ class AdminController extends Controller
             'title' => 'required|string|max:255',
             'subtitle' => 'nullable|string|max:255',
             'price' => 'required|integer|min:0|max:9999999',
+            'price_unit' => 'required|string|max:50',
+            'features' => 'nullable|array|max:20',
+            'features.*' => 'required|string|max:500',
+            'sibling_discount' => 'nullable|string|max:255',
+            'is_featured' => 'required|boolean',
+            'sort_order' => 'required|integer|min:0|max:999',
+            'is_active' => 'required|boolean',
         ]);
 
         $pricingPlan->update($this->sanitize($validated));
